@@ -1,17 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
+import router from "./router.js";
 
 const PORT = 5000
-const DB_URL = 'mongodb+srv://alex:<123>@cluster0.ql7mw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-
+const DB_URL = 'mongodb+srv://alex:alex@cluster0.9cqe8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const app = express()
 
 app.use(express.json())
-
-app.post('/', (req,res) => {
-    console.log(req.body)
-    res.status(200).json('server is working')
-})
+app.use('/api', router)
 
 async function startApp() {
     try {
